@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="animate.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link rel="stylesheet" href="vue-css.css">
+  <link rel="shortcut icon" href="images.png" type="image/x-icon">
+        <link rel="stylesheet" href="style.css">
+    <title>Собаки</title>
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        .move-top {
+            position: fixed;
+            right: 50px;
+            bottom: 70px;
+            background-color: rgb(29, 13, 43);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            /* padding-top: 25px; */
+            /* padding-left: 15px; */
+            color: rgb(211, 10, 10);
+            font-weight: 900;
+            box-shadow: 0 0 10px white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* padding: ; */
+        }
+
+        .move-top>p {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .click-div-map {
+            width: 0;
+            height: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            align-items: center;
+            justify-content: center;
+            z-index: 100500;
+            display: none;
+            background-color: #2b2a2a65;
+        }
+
+        .map-wrap {
+            width: 65%;
+
+            /* animation: map-anim 0.8s; */
+        }
+
+        @keyframes map-anim {
+            0% {
+                width: 0;
+                height: 0;
+            }
+
+            100% {
+                width: 100%;
+                height: 100vh;
+            }
+        }
+
+        .p-karta:hover {
+            cursor: pointer;
+            font-weight: 900;
+
+        }
+
+        .img-karta:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+
+        .p-karta,
+        .img-karta {
+            transition: 0.5s;
+        }
+
+
+        ::-webkit-scrollbar {
+            /* chrome based */
+            width: 0px;
+            /* ширина scrollbar'a */
+            background: transparent;
+            /* опционально */
+        }
+
+        html {
+            -ms-overflow-style: none;
+            /* IE 10+ */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+
+
+    <a href="#">
+        <div class="move-top">
+            <p>Вверх</p>
+        </div>
+    </a>
+
+    <div class="click-div-map">
+        <div class="map-wrap">
+            <div class="ratio ratio-16x9">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2575.9073314379348!2d30.145277676047026!3d49.78780757147324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d369b8f5c98bb5%3A0xbeef3b8f71d16e3a!2z0KjQutC-0LvQsCDQv9GA0L7Qs9GA0LDQvNGD0LLQsNC90L3RjyDCq0luc2lkZcK7!5e0!3m2!1sru!2sua!4v1714037813024!5m2!1sru!2sua"
+                    style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid banner">
+        <div class="container ">
+            <div class="row ps-0">
+                <div class="col  main-nav">
+                    <nav class="navbar navbar-expand-md navbar-light ">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Як продати</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Самостійно</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Викуп авто</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"> Автокомісійка</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Переваги авторинку</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Карта проїзду</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-6 ">
+                    <h1>Собака друг людини.</h1>
+                    <p class="text-center">Дійсно, ця тварина протягом тисячоліть живе пліч-о-пліч з людиною і є вірним супутником для багатьох з нас. Розглянемо деякі цікаві факти про собак.</p>
+                    <div class="map d-flex align-items-end">
+                        
+                    </div>
+                </div>
+                <div class="col-md-6  ">
+                    <img src="dogs-4.png" class="img-fluid wow animate__backInRight animate__animated  " alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid fusion">
+        <div class="container pb-5">
+            <div class="row ">
+                <div class="col-md-6 ">
+                    <h2 class="bold">Як обрати собі собаку? <span class="color-red"> </span>
+                    </h2>
+                </div>
+            </div>
+            <div class="row pb-5">
+                <div class="col-lg-4 sell-1">
+                    <div class="how-sell-1 m y-anim-top">
+                        <h3>Крок 1. Призначення собаки.</h3>
+                        <p>Розпочати вибір собаки варто з відповіді на запитання: <b> для чого </b>вам потрібна собака? Для охорони? Для спільних занять спортом? Для виставок? Для душі?
+
+                            Є собаки, чудові в одному напрямку, але <b>зовсім</b>  непридатні для іншого.
+                            
+                            Поміркуйте, навіщо вам собака,
+                             і розглядайте породи, створені для цього.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 sell-1">
+                    <div class="how-sell-1 m y-anim-top">
+                        <h3>Крок 2. Спосіб життя.</h3>
+                        <p>Після того як визначилися з призначенням, <b>зверніть увагу</b>  на свій спосіб життя.
+
+                            Якщо ви любите повалятися на дивані, вам із задоволенням складе компанію ши-тцу.
+                            
+                            Угорська вижла, навпаки, підкорить "сотку" разом з <b>активним</b>  господарем.
+                            
+                            Собаки, яким не приділяють достатньо уваги,<b> гризуть</b> взуття і меблі, не слухаються та перебувають у пошуку шляхів помсти.
+                            
+                            </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 sell-1">
+                    <div class="how-sell-1 m y-anim-top">
+                        <h3>Крок 4. Вивчіть породу.</h3>
+                        <p>Цей пункт особливо важливий для тих, хто з дитинства мріє про <b> конкретну</b> породу.
+
+                            Після мультфільму "101 далматинець" з'явилася мода на далматинів. Але від багатьох із них господарі відмовилися протягом першого року собачого життя. Виявилося, що це не гарненька іграшка, а <b> енергійний</b> собака, який потребує багато простору й часу.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h2 class="bold"> <span class="color-red"> Цікаві факти про собак, про які ви навіть і не здогадувались</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 sell-1">
+                    <div class="how-sell-21">
+                        <p>Собаки здатні розрізняти кольори. Їх світ не є чорно-білим. Однак їх колірна гамма не така широка, як у людини.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 sell-1">
+                    <div class="how-sell-22">
+                        <p>Шум грози часто викликає біль у вухах собаки. Якщо ви бачите, що ваш вихованець злякався грози, в дійсності це може бути реакція на біль у вухах.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 sell-1">
+                    <div class="how-sell-23">
+                        <p>Шум грози часто викликає біль у вухах собаки. Якщо ви бачите, що ваш вихованець злякався грози, в дійсності це може бути реакція на біль у вухах.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- тут початок вю -->
+    <h1></h1>
+    <div class="container" id="vue-cont">
+        <div class="car-name">
+            <ul class="car-name-list">
+                <li
+                    v-for="(item, index) in cars" 
+                    v-on:click="showCar(index)"
+                    v-bind:class="{active: currentIndex ==  index}"
+                    class="list-item">
+                    {{item.name}} 
+                </li>
+            </ul>
+        </div>
+        <div class="car-wrap">
+            <div class="car-about">
+                <div class="car-img">
+                    <img v-bind:src="currentCar.image" alt="">
+                </div>
+                <div class="car-info">
+                    <div class="name">Порода - {{currentCar.name}}</div>
+                    <div class="model">Батьківщина - {{currentCar.model}}</div>
+                    <div class="color">Колір - {{currentCar.color}}</div>
+                    <div class="year">Характер - {{currentCar.year}}</div>
+                    <div class="price">Ціна - {{currentCar.price}} $ </div>
+                </div>
+            </div>
+            <div class="car-text">
+                {{currentCar.about}}
+            </div>
+        </div>
+    </div>
+
+
+    <!-- тут кинець вю -->
+
+
+
+
+    <div class="container-fluid gray">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h2 class="bold mb-0 animate__heartBeat wow animate__animated">Бажаєте зізнатись більше про собак?</h2>
+                    <p>Ось ще вам дивовижні факти про домашніх улюбленців!</p>
+                </div>
+            </div>
+            <div class="row justify-content-around mt-5">
+                <div class="col-md-4 check">
+                    <div class="check-div">
+                        <div class="check-img">
+                            <img src="images.png" alt="">
+                        </div>
+                        <p>За популярністю серед домашніх улюбленців собаки поступаються лише котам. Сьогодні в світі налічується близько 400 мільйонів собак.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 check">
+                    <div class="check-div">
+                        <div class="check-img">
+                            <img src="images.png" alt="">
+                        </div>
+                        <p>Собак здавна дуже цінували на Далекому Сході, в стародавні часи пекінесів часто дарували вельможам та імператорам і при дворах вони навіть мали власних слуг.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 check">
+                    <div class="check-div">
+                        <div class="check-img">
+                            <img src="images.png" alt="">
+                        </div>
+                        <p>Собаки часто фігурують в грецькій міфології, в тому числі Цербер, триголовий пес, що охороняє вхід в підземний світ, і мисливських собак, які супроводжують на полюванні богиню Діану. Древньогрецький мислитель Платон говорив, що "у собаки є душа філософа».</p>
+                    </div>
+                </div>
+                <div class="col-md-4 check">
+                    <div class="check-div">
+                        <div class="check-img">
+                            <img src="images.png" alt="">
+                        </div>
+                        <p>Форма морди собаки може свідчити про те, як довго вона зможе прожити. Собаки з гострими мордами, схожими на вовчу, як правило, живуть довше ніж пси з плоскими.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 check">
+                    <div class="check-div">
+                        <div class="check-img">
+                            <img src="images.png" alt="">
+                        </div>
+                        <p>При народженні цуценята дуже беззахисні, вони з'являються на світ абсолютно сліпими, глухими та беззубими. До речі цуценята далматинців народжуються абсолютно білими, а характерні плями з'являються згодом.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 check">
+                    <div class="check-div">
+                        <div class="check-img">
+                            <img src="images.png" alt="">
+                        </div>
+                        <p>Лопатки в собак не прикріплені до решти скелета, це забезпечує більшу гнучкість тіла.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 check">
+                    <div class="check-div">
+                        <div class="check-img">
+                            <img src="images.png" alt="">
+                        </div>
+                        <p>В собак дуже добре розвинуте відчуття запаху, приблизно в 1000 разів краще, ніж у людей. У той час як у людей є 5 мільйонів специфічних клітин для виявлення запаху, собаки мають більш ніж 220 млн. Крім того частина мозку, яка відповідає за запах у собак в чотири рази більша, ніж у людини.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+   
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+    
+<script src="vue-my.js"></script>
+
+    <script>
+        let btnTop = document.querySelector('.move-top');
+        btnTop.style.display = 'none'
+        function showBtnTop() {
+
+            let height = window.innerHeight;
+            console.log(height + 'height');
+            if (window.scrollY > height) {
+                btnTop.style.display = 'flex'
+            }
+            else {
+                btnTop.style.display = 'none'
+            }
+        }
+        window.addEventListener('scroll', showBtnTop);
+
+        let imgMap = document.querySelector('.img-karta');
+        let pMap = document.querySelector('.p-karta');
+        let divMap = document.querySelector('.click-div-map');
+
+        function showMap() {
+            divMap.style.display = 'flex';
+            divMap.style.animation = 'map-anim 0.8s';
+            divMap.style.width = '100%';
+            divMap.style.height = '100vh'
+
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${window.scrollY}px`;
+
+
+        }
+        
+ 
+    </script>
+
+
+</body>
+
+</html>
